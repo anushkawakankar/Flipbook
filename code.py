@@ -4,6 +4,14 @@ import cv2
 from PIL import Image 
 import numpy as np 
 import imutils
+import sys
+import imageio
+
+def generateGif(imageNames, video_name, fpsUser):
+    images = []
+    for imageName in imageNames:
+        images.append(imageio.imread(imageName))
+    imageio.mimsave(video_name, images, fps = fpsUser)
 
 def resizeImages(mw, mh, imageNamesUnique):
     for im in imageNamesUnique:
@@ -11,8 +19,7 @@ def resizeImages(mw, mh, imageNamesUnique):
         newImage = imutils.resize(image , width=mw, height=mh)
         cv2.imwrite(im, newImage)
 
-def generateVideo(imageNames,fpsUser,loop):
-    video_name = "myvideo.avi"
+def generateVideo(imageNames,fpsUser,loop,video_name):
     frame = cv2.imread(imageNames[0])
     height, width, layers = frame.shape  
     video = cv2.VideoWriter(video_name, 0, fpsUser, (width, height))
@@ -24,14 +31,26 @@ def generateVideo(imageNames,fpsUser,loop):
     video.release()
 
 
-filename = "commands.flip"
-
+gifFlag = False
 # reading the language file
+# checking if it is a .flip file
+filename = sys.argv[1]
+if(not ".flip" in filename):
+    print("Error: File must be of .flip format")
+    exit()
+# checking if output path is .avi or .gif
+outputvid = sys.argv[2]
+if(not "avi" in outputvid and not "gif" in outputvid):
+    print("Error: Output file must be of .gif or .avi format")
+    exit()
+if(".gif" in outputvid):
+    gifFlag = True
 
 if(not os.path.exists(filename)):
     print("Error:",filename,"does not exist")
     exit(0)
 f = open(filename,"r")
+
 imageNames = []
 imageNamesUnique = []
 coord = np.zeros((1000,2))
@@ -39,6 +58,7 @@ fpsUser = 15
 loop = 3
 Lines = f.readlines()
 i = 1
+# animation = 0
 for line in Lines:
     if("fps" in line):
         args_fps = line.split('=')
@@ -72,6 +92,7 @@ for line in Lines:
         y = 0
         image = ""
         if(len(args) == 5):
+            # animation = 1
             x = int(args[2])
             y = int(args[3])
             image = args[4]
@@ -111,5 +132,8 @@ mean_height = int(mean_height / num_of_images)
 resizeImages(mean_width, mean_height, imageNamesUnique)
 
 # Generate video
-# print(fpsUser,loop)
-generateVideo(imageNames, fpsUser, loop)
+if(gifFlag):
+    generateGif(imageNames, outputvid, fpsUser)
+else:
+    generateVideo(imageNames, fpsUser, loop,outputvid)
+    
