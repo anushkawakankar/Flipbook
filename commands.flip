@@ -1,8 +1,10 @@
+fps=30
 1 5 shark/shark1.jpg
 6 10 shark/shark2.jpg
 11 15 shark/shark3.jpg
 16 20 shark/shark4.jpg
 21 25 shark/shark5.jpg
+loop=4
 26 30 shark/shark6.jpg
 31 35 shark/shark7.jpg
 36 40 shark/shark8.jpg
