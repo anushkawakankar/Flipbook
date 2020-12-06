@@ -4,12 +4,13 @@
 https://drive.google.com/drive/folders/1t61DQ1L9Kv1QCS94yOvZDi3QdoSQn9nN?usp=sharing
 
 ### Files
-.
+```
 ├── compiler.py
 ├── main.py
 ├── utils.py
 ├── shark.flip
 └── requirements.txt
+```
 
 - `compiler.py: module contaning Lexer and Parser`
 - `main.py: entrypoint`
