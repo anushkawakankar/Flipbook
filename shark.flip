@@ -1,5 +1,5 @@
 
-set_fps 30
+set_fps 50
 set_loop 3
 add_frames 5 shark/shark1.jpg
 add_frames 5 shark/shark2.jpg

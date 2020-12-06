@@ -22,5 +22,13 @@ pip install requirements.txt
 
 ### Running
 ```bash
-python main.py <flip_file>
+python main.py <flip_file> <output_file>
 ```
+
+### Syntax 
+* The language has the following commands 
+    * add_frames - to mention the number of frames an image should be repeated
+    * set_fps - to set the fps of the output video/gif
+    * set_loop - to set the number of times the video loops (only for avi)
+* the format is to add an image is `add_frames x image_name`
+* the format to set fps and loops is `set_fps = x` and `set_loop = y`

@@ -1,0 +1,10 @@
+set_fps 30
+set_loop 4
+add_frames 5 flower/flower1.jpg
+add_frames 5 flower/flower2.jpg
+add_frames 5 flower/flower3.jpg
+add_frames 5 flower/flower4.jpg
+add_frames 5 flower/flower5.jpg
+add_frames 5 flower/flower6.jpg
+add_frames 5 flower/flower7.jpg
+add_frames 5 flower/flower8.jpg

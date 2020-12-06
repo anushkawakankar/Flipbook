@@ -7,7 +7,7 @@ import sys
 if __name__ == "__main__":
     
     infile = sys.argv[1]
-    outfile = 'output.gif'
+    outfile = sys.argv[2]
 
     if "flip" != infile.split('.')[-1]:
         print("Error: File must be of .flip format")
@@ -40,5 +40,9 @@ if __name__ == "__main__":
         if 'loop' in task: LOOP = task['loop']
         if 'frames' in task: FRAMES += task['frames']
 
-    utils.generate_gif(FPS, LOOP, FRAMES, outfile)
+    if('gif' in outfile):
+        utils.generate_gif(FPS, LOOP, FRAMES, outfile)
+    elif('avi' in outfile):
+        utils.generate_video(FPS, LOOP, FRAMES, outfile)
+
     print("DONE")
