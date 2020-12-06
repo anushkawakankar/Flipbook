@@ -1,5 +1,8 @@
 # Flipbook
 
+### Link to demo
+https://drive.google.com/drive/folders/1t61DQ1L9Kv1QCS94yOvZDi3QdoSQn9nN?usp=sharing
+
 ### Files
 .
 ├── compiler.py
