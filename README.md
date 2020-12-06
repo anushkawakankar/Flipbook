@@ -7,15 +7,16 @@ https://drive.google.com/drive/folders/1t61DQ1L9Kv1QCS94yOvZDi3QdoSQn9nN?usp=sha
 .
 ├── compiler.py
 ├── main.py
-├── requirements.txt
+├── utils.py
 ├── shark.flip
-└── utils.py
+└── requirements.txt
 
 - `compiler.py: module contaning Lexer and Parser`
-- `utils.py: utility functions`
-- `requirements.txt: python depedencies`
-- `shark.flip: sample flip file`
 - `main.py: entrypoint`
+- `utils.py: utility functions`
+- `shark.flip: sample flip file`
+- `requirements.txt: python depedencies`
+
 
 ### Setup
 Install dependencies using pip
